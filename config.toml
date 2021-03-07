@@ -4,7 +4,7 @@ title = "Day Day Up"
 theme = "hello-friend-ng"
 
 logoText = "cd /home/zgong"
-logoHomeLink = "/techBlog"
+logoHomeLink = "/"
 
 [[menu.main]]
     identifier = "blog"
