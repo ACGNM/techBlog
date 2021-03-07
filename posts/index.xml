@@ -1,4 +1,221 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 19:53:41 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Udemy Docker learning</title><link>/techBlog/posts/docker_learning/</link><pubDate>Sun, 07 Mar 2021 19:53:41 +0900</pubDate><guid>/techBlog/posts/docker_learning/</guid><description>Section3 执行启动容器命令之后会发生什么 执行docker container run --publish 80:80 --name webhost --detach nginx之后发生的：
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 21:03:15 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Sprint_guide</title><link>/techBlog/posts/sprint_guide/</link><pubDate>Sun, 07 Mar 2021 21:03:15 +0900</pubDate><guid>/techBlog/posts/sprint_guide/</guid><description>学习spring的基本知识找不到好的课程所以跟着官方Guides学习
+1.建立一个resful服务
+为了学习基础知识，不使用Github上的工程文件，使用spring initializr来建立工程的框架 https://start.spring.io/
+指定各项参数：
+Project: 选择使用Maven还是Gradle来管理工程（和依赖）。个人一般使用Maven所以使用Maven Spring Boot 一般选择使用默认的版本 Project Metadata Group 所在组织名，一般是网址的逆序 Artifact 工程的名字，会用于最后生成的jar或者war的命名上 其余自动生成 Packaging 选择最后将工程打包成哪种格式的包 JAVA 选择使用的JAVA版本 Dependencies 选择使用的依赖 指定好各项参数后在下载之前先点击EXPLORE来预览一下生成的POM.xml文件的内容是否正确
+使用趁手的编译器来建立工程。我使用的是IDEA IntelliJ，在公司也使用同种编译器体验不错。
+Create New Project -&amp;gt; Maven -&amp;gt; Groupd和ArtifactId与之前spring initializr的一致即可，版本因为是demo所以不用太在意如果需要版本方面的知识可以参考语义化版本 -&amp;gt; 接下来选择工程位置即可 然后将spring initializr上下载来的压缩包解压复制里面的POM文件到工程的POM文件中。之后一般IDEA会开始自动下载依赖与构建工程。
+从spring initializr下载的压缩包里有个mvnw.cmd文件，里面存储着简易的Maven执行命令脚本（比起mvn命令更简单）。
+首先为了可以在IDEA的Terminal中可以运行./mvnw 命令需要安装Maven的运行环境。我是Mac OS所以直接brew install mvn。 然后在工程根目录下（或者直接在IDEA的Terminal中）运行mvn -N io.</description><content type="html"><![CDATA[<p>学习spring的基本知识找不到好的课程所以跟着官方<a href="https://spring.io/guides#getting-started-guides">Guides</a>学习</p>
+<p>1.<a href="https://spring.io/guides/gs/rest-service/">建立一个resful服务</a></p>
+<ul>
+<li>
+<p>为了学习基础知识，不使用Github上的工程文件，使用<code>spring initializr</code>来建立工程的框架 <a href="https://start.spring.io/">https://start.spring.io/</a></p>
+<ul>
+<li>
+<p>指定各项参数：</p>
+<ul>
+<li>Project: 选择使用Maven还是Gradle来管理工程（和依赖）。个人一般使用Maven所以使用Maven</li>
+<li>Spring Boot 一般选择使用默认的版本</li>
+<li>Project Metadata
+<ul>
+<li>Group 所在组织名，一般是网址的逆序</li>
+<li>Artifact 工程的名字，会用于最后生成的jar或者war的命名上</li>
+<li>其余自动生成</li>
+</ul>
+</li>
+<li>Packaging 选择最后将工程打包成哪种格式的包</li>
+<li>JAVA 选择使用的JAVA版本</li>
+<li>Dependencies 选择使用的依赖</li>
+</ul>
+</li>
+<li>
+<p>指定好各项参数后在下载之前先点击<code>EXPLORE</code>来预览一下生成的<code>POM.xml</code>文件的内容是否正确</p>
+</li>
+</ul>
+</li>
+<li>
+<p>使用趁手的编译器来建立工程。我使用的是IDEA IntelliJ，在公司也使用同种编译器体验不错。</p>
+<ul>
+<li><code>Create New Project</code> -&gt; <code>Maven</code> -&gt; <code>Groupd</code>和<code>ArtifactId</code>与之前<code>spring initializr</code>的一致即可，版本因为是demo所以不用太在意如果需要版本方面的知识可以参考<a href="https://semver.org/lang/zh-CN/">语义化版本</a> -&gt; 接下来选择工程位置即可</li>
+</ul>
+</li>
+<li>
+<p>然后将<code>spring initializr</code>上下载来的压缩包解压复制里面的POM文件到工程的POM文件中。之后一般IDEA会开始自动下载依赖与构建工程。</p>
+</li>
+<li>
+<p>从<code>spring initializr</code>下载的压缩包里有个<code>mvnw.cmd</code>文件，里面存储着简易的Maven执行命令脚本（比起<code>mvn</code>命令更简单）。</p>
+<ul>
+<li>首先为了可以在IDEA的<code>Terminal</code>中可以运行<code>./mvnw </code>命令需要安装Maven的运行环境。我是Mac OS所以直接<code>brew install mvn</code>。</li>
+<li>然后在工程根目录下（或者直接在IDEA的<code>Terminal</code>中）运行<code>mvn -N io.takari:maven:wrapper</code>即可在工程根目录中安装<a href="https://github.com/takari/maven-wrapper">maven-wrapper</a>。</li>
+<li>然后运行<code>./mvnw spring-boot:run</code>即可编译打包运行工程一条龙。</li>
+</ul>
+</li>
+<li>
+<p>教程中值得注意的点：<code>This application uses the Jackson JSON library to automatically marshal instances of type Greeting into JSON. Jackson is included by default by the web starter.</code></p>
+<ul>
+<li>意思是Jackson这个可以将JAVA类直接转换成JSON的库已经包含在了<code>Spring Web</code> 中了。</li>
+</ul>
+</li>
+<li>
+<p>其他内容都写在教程中了</p>
+</li>
+</ul>
+<p>2.<a href="https://spring.io/guides/gs/consuming-rest/">访问Restful服务</a></p>
+<ul>
+<li>根据教程即可</li>
+</ul>
+<p>3.<a href="https://spring.io/guides/gs/maven/">使用Maven建立Java工程</a></p>
+<ul>
+<li>根据教程即可</li>
+</ul>
+<p>4.<a href="https://spring.io/guides/gs/uploading-files/">上传文件</a></p>
+<ul>
+<li>仅凭教程中的代码不足以运行工程，需要根据教程的Github代码来天剑文件存储和例外抛出的类。
+<ul>
+<li><a href="https://github.com/spring-guides/gs-uploading-files/tree/master/complete/src">教程的示例工程文件</a></li>
+</ul>
+</li>
+</ul>
+]]></content></item><item><title>Spring</title><link>/techBlog/posts/spring_restful/</link><pubDate>Sun, 07 Mar 2021 20:57:51 +0900</pubDate><guid>/techBlog/posts/spring_restful/</guid><description>Building REST services with Spring 建立雇员类(Employee.java) 使用JPA的@Entity注解来进行数据存储的准备。 id, name, role都是领域对象模型。其中id被指定为主键并且自动由JPA provider生成。 当需要一个新的员工实例时会创建一个构造函数，但是此时还没有创建id。 使用JPA时建立雇员仓库(EmployeeRepository)来进行与数据库的交互 建立一个接口继承JpaRepository类。domain雷星设置为Employee，id类型设置为long。 仓库式的方法(repository solution)可以回避基于特定语言的数据存储方式。 Spring Boot的入口是一个public static void main类型的，并且在需要Spring Boot行使其作用的地方使用@SpringBootApplication注释。 @SpringBootApplication是一个元注释，用来component scanning, autoconfiguration, and property support。本质就是用来启动一个容器并且使服务开始运行。 建立一个数据交互类LoadDatabase.java 程序做的事： 当Application的内容加载时Spring Boot会运行所有的CommandLineRunner bean。 这个运行类会请求一个EmployeeRepository的拷贝。 建立了两个实体并且存储了它们。 HTTP平台 为了能从网络层获取数据，现在将目光转向Spring MVC。建立控制器类EmployeeController.java。 代码解说 @RestController表示函数返回的结果直接写入响应而不是渲染模板。 EmployeeRepository在controller的构造函数中被注入。 对应HTTP的各种请求方式，存在各种操作的路由。(GET, POST, PUT, and DELETE) EmployeeNotFoundException用来表示查找失败的意外。 在抛出EmployeeNotFoundException例外之后添加Spring MVC的设置(advice)来生成HTTP 404响应。 意外抛出的解说 @ResponseBody表示这个advice直接写入响应体。 @ExceptionHandler指定这个advice只有抛出EmployeeNotFoundException时才会被调用。 @ResponseStatus指定了抛出一个HttpStatus.</description><content type="html"><![CDATA[<h1 id="building-rest-services-with-spring">Building REST services with Spring</h1>
+<h2 id="建立雇员类employeejava">建立雇员类(Employee.java)</h2>
+<ul>
+<li>使用JPA的<code>@Entity</code>注解来进行数据存储的准备。</li>
+<li><code>id, name, role</code>都是领域对象模型。其中<code>id</code>被指定为主键并且自动由JPA provider生成。</li>
+<li>当需要一个新的员工实例时会创建一个构造函数，但是此时还没有创建<code>id</code>。</li>
+</ul>
+<h2 id="使用jpa时建立雇员仓库employeerepository来进行与数据库的交互">使用JPA时建立雇员仓库(EmployeeRepository)来进行与数据库的交互</h2>
+<ul>
+<li>建立一个接口继承<code>JpaRepository</code>类。domain雷星设置为<code>Employee</code>，<code>id</code>类型设置为<code>long</code>。</li>
+<li>仓库式的方法(repository solution)可以回避基于特定语言的数据存储方式。</li>
+<li>Spring Boot的入口是一个<code>public static void main</code>类型的，并且在需要Spring Boot行使其作用的地方使用<code>@SpringBootApplication</code>注释。
+<ul>
+<li><code>@SpringBootApplication</code>是一个元注释，用来<code>component scanning, autoconfiguration, and property support</code>。本质就是用来启动一个容器并且使服务开始运行。</li>
+</ul>
+</li>
+</ul>
+<h2 id="建立一个数据交互类loaddatabasejava">建立一个数据交互类LoadDatabase.java</h2>
+<h3 id="程序做的事">程序做的事：</h3>
+<ul>
+<li>当Application的内容加载时Spring Boot会运行所有的<code>CommandLineRunner</code> bean。</li>
+<li>这个运行类会请求一个<code>EmployeeRepository</code>的拷贝。</li>
+<li>建立了两个实体并且存储了它们。</li>
+</ul>
+<h2 id="http平台">HTTP平台</h2>
+<ul>
+<li>为了能从网络层获取数据，现在将目光转向Spring MVC。建立控制器类<code>EmployeeController.java</code>。</li>
+</ul>
+<h3 id="代码解说">代码解说</h3>
+<ul>
+<li><code>@RestController</code>表示函数返回的结果直接写入响应而不是渲染模板。</li>
+<li><code>EmployeeRepository</code>在controller的构造函数中被注入。</li>
+<li>对应HTTP的各种请求方式，存在各种操作的路由。(GET, POST, PUT, and DELETE)</li>
+<li><code>EmployeeNotFoundException</code>用来表示查找失败的意外。
+<ul>
+<li>在抛出<code>EmployeeNotFoundException</code>例外之后添加Spring MVC的设置(advice)来生成HTTP 404响应。</li>
+</ul>
+</li>
+</ul>
+<h3 id="意外抛出的解说">意外抛出的解说</h3>
+<ul>
+<li><code>@ResponseBody</code>表示这个advice直接写入响应体。</li>
+<li><code>@ExceptionHandler</code>指定这个advice只有抛出<code>EmployeeNotFoundException</code>时才会被调用。</li>
+<li><code>@ResponseStatus</code>指定了抛出一个<code>HttpStatus.NOT_FOUND</code>。</li>
+<li>advice的函数体用来生成错误信息。这里直接调用了例外的内容。</li>
+</ul>
+<h2 id="上述达到restful的标准了吗没有">上述达到RESTful的标准了吗？没有</h2>
+<h3 id="缺少什么">缺少什么：</h3>
+<ul>
+<li>类似<code>/employees/3</code>的URL不符合风格。</li>
+<li>很少使用GET，POST等。</li>
+<li>所有的CRUD都分别映射好。</li>
+</ul>
+<p>其实上述都是<strong>RPC</strong>（Remote Procedure Call，远程过程调用）。因为无法了解怎么与服务进行交互。还需要额外编写文档。</p>
+<h3 id="这里导入spring-hateoas一个可以辅助编写多媒体驱动输出的sping项目">这里导入Spring HATEOAS，一个可以辅助编写多媒体驱动输出的Sping项目。</h3>
+<ul>
+<li>简而言之关键是需要添加对相关操作的链接（相关资源的路径）
+<ul>
+<li><code>HAL</code>(Hypertext Application Language)形式是资源(Resources)+链接(Links)
+<ul>
+<li>链接一般在<code>_links</code>中（JSON格式）</li>
+<li>资源中的列表一般在<code>_embedded</code>中（如雇员列表）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="简化的链接生成方式手动使用linkto不赘述">简化的链接生成方式（手动使用<code>linkTo</code>不赘述）</h4>
+<ul>
+<li>使用HATEOAS的<code>RepresentationModelAssembler&lt;转换前, 转换后&gt;</code>，实现这个接口
+<ul>
+<li>重写它的方法<code>toModel()</code>来实现将<code>Employee</code>转换为<code>EntityModel&lt;Employee&gt;</code>。</li>
+<li>通过<code>@Component</code>注解，应用开始运行时就可以创建这个assembler。</li>
+</ul>
+</li>
+<li>将上述assembler注入控制类中。</li>
+</ul>
+<h2 id="改进api">改进API</h2>
+<ul>
+<li>为了保证应用的弹性，需要使API具有即使规格变更也不能影响客户端的特性
+<ul>
+<li>先导原则：不要删除数据库的列，在RESTful中同样适用。</li>
+<li>可以随时加入列</li>
+</ul>
+</li>
+<li>例：将<code>name</code>分解为<code>firstName</code>和<code>lastName</code>
+<ul>
+<li>数据库新添加两列而不删除原来的</li>
+<li>代码解说
+<ul>
+<li><code>name</code>替换为<code>firstName</code>和<code>lastName</code></li>
+<li>获取名字的getter中的方法变为将<code>firstName</code>和<code>lastName</code>进行组合</li>
+<li>名字的setter解析输入适当分配</li>
+<li>生成初始数据的部分也适当修改</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>适当地变更响应
+<ul>
+<li>代码解说
+<ul>
+<li>同样使用assembler来生成响应体</li>
+<li>用<code>ResponseEntity</code>来生成<strong>HTTP 201 Created</strong>状态信息，一般会包含一个<strong>Location</strong>的头，直接用资源自己URI来赋值即可。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="为rest-api创建链接">为REST API创建链接</h2>
+<ul>
+<li>
+<p>主要目的是为了将服务器逻辑与客户端的解析解耦合。</p>
+<ul>
+<li>比如订单状态
+<ul>
+<li>处理中→完成/取消</li>
+<li>在payload中添加可进行的操作信息容易损坏服务器与客户端的联动并且后续维护成本大</li>
+<li>如果客户端可以解析HAL则可以自动显示可以进行的后续操作</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>使用的<code>HATEOAS(Hypermedia as the Engine of Application State)</code></p>
+<ul>
+<li>根据当前状态动态地改变链接列表里的内容</li>
+<li>用链接作为应用状态管理的引擎</li>
+</ul>
+</li>
+<li>
+<p>具体代码见<a href="https://spring.io/guides/tutorials/rest/">Spring Boot Guide</a></p>
+</li>
+</ul>
+<h3 id="用词">用词</h3>
+<ul>
+<li><strong>domain object</strong>: A domain class represents a table column and it allows you to handle the column value as a Java object.</li>
+</ul>
+]]></content></item><item><title>Udemy Docker learning</title><link>/techBlog/posts/docker_learning/</link><pubDate>Sun, 07 Mar 2021 19:53:41 +0900</pubDate><guid>/techBlog/posts/docker_learning/</guid><description>Section3 执行启动容器命令之后会发生什么 执行docker container run --publish 80:80 --name webhost --detach nginx之后发生的：
 在本地的image cache中寻找 如果本地找不到匹配的image，则在远程的image repo中寻找（默认为Docker Hub） 下载寻找到的image最新版本 以下载好的image为基础创建一个容器container 在docker engine的private network中创建一个虚拟IP 打开主机（host）的80端口连接转发至容器的80端口 如果不用--publish选项则不会打开任何端口 使用image Dockerfile中的CMD启动容器 --detach使得container在后台运行，不接收输入与输出。 重新进入交互模式使用docker attach(需要有正在运行的bash，退出container也停止)，或者docker exec -it(退出container不停止) 参考1 参考2 Container VS. VM container不是mini VM（与VM基本没有相似之处） 只是进程（process） 被限制在其能访问的资源中 进程停止则退出 相关命令解说 docker top列出在特定的容器中执行的进程 ps aux可以发现同样的进程可以在主机系统中查询到 所以容器是一个进程
 监视 docker container top 同上 docker container inspect列出启动容器时所用的设置（JSON格式）等元数据 docker container stats监视容器运行状态（CPU使用和内存等） 进入容器内部 docker container run -it以交互的方式启动容器 -t创建一个虚拟的tty -i使得会话开放来接收终端输入（keep session open to receive terminal input） 末尾可以加入想运行的命令，比如bash e.</description><content type="html"><![CDATA[<h1 id="section3">Section3</h1>
 <h2 id="执行启动容器命令之后会发生什么">执行启动容器命令之后会发生什么</h2>
