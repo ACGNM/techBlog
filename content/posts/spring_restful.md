@@ -1,7 +1,7 @@
 ---
 title: "Spring"
 date: 2021-03-07T20:57:51+09:00
-draft: true
+draft: false
 toc: false
 images:
 tags:
@@ -93,4 +93,3 @@ tags:
 
 ### 用词
 - **domain object**: A domain class represents a table column and it allows you to handle the column value as a Java object. 
-
