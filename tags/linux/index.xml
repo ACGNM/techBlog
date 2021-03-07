@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>linux on Day Day Up</title><link>/techBlog/tags/linux/</link><description>Recent content in linux on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 21:23:26 +0900</lastBuildDate><atom:link href="/techBlog/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Udemy_linux</title><link>/techBlog/posts/udemy_linux/</link><pubDate>Sun, 07 Mar 2021 21:23:26 +0900</pubDate><guid>/techBlog/posts/udemy_linux/</guid><description>Day 1 查找Linux发行版的网站 DistroWatch.com
+Day 2 /etc 系统设置文件夹
+/var 主要是日志文件存储地
+/usr/local 非系统自带软件安装地（并非所有） /opt 可选，第三方软件安装地
+具体内容有可能是软件目录下有自己的目录结构，也有可能共享目录（说的是设置，日志等）：如在/etc下存储自己的设置，在/var下存储自己的日志 &amp;lt;- 不在自己的安装目录下
+例子1
+/etc/opt/myapp /opt/myapp/bin /opt/myapp/lib /var/opt/myapp 例子2
+/usr/local/bin/myapp /usr/local/lib/libmyapp.so /usr/local/etc/myapp.conf Tilde(波浪号，チルダ) ~jason = /home/jason ~gongzhihao = /home/gongzhihao ~root = /root ~ftp = /srv/ftp
+man 相关
+使用man查询用法说明后，回车下一行，空格下一页，g回到顶端，G到底部（shift+g），推出按q man -k 搜索内容 在man页面中进行搜索 环境变量</description></item></channel></rss>

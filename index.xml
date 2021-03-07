@@ -1,4 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Day Day Up</title><link>/techBlog/</link><description>Recent content on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 21:03:15 +0900</lastBuildDate><atom:link href="/techBlog/index.xml" rel="self" type="application/rss+xml"/><item><title>Sprint_guide</title><link>/techBlog/posts/sprint_guide/</link><pubDate>Sun, 07 Mar 2021 21:03:15 +0900</pubDate><guid>/techBlog/posts/sprint_guide/</guid><description>学习spring的基本知识找不到好的课程所以跟着官方Guides学习
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Day Day Up</title><link>/techBlog/</link><description>Recent content on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Mar 2021 21:24:28 +0900</lastBuildDate><atom:link href="/techBlog/index.xml" rel="self" type="application/rss+xml"/><item><title>Jvm_learning</title><link>/techBlog/posts/jvm_learning/</link><pubDate>Sun, 07 Mar 2021 21:24:28 +0900</pubDate><guid>/techBlog/posts/jvm_learning/</guid><description>JVM与JAVA体系结构 主要研究官方提供的HotSpot虚拟机 不管什么语言，只要提供编译器编译出遵循JVM规范的字节码文件，就可以在Java虚拟机运行。 在Java虚拟机中执行的指令成为Java字节码指令 虚拟机分为系统虚拟机和软件虚拟机 系统虚拟机模拟硬件环境，软件虚拟机运行在操作系统之上，不与硬件进行直接交互。
+JVM的位置 java代码(.java文件)编译成字节码文件(.class文件)给JVM执行 JVM整体结构 执行引擎用来解释运行。其中只用解释器的话对于反复被执行的热点代码的优化不够，所以引入JIT编译器(Just-In-Time Compiler)来提前将字节码文件编译成二进制机器命令。同时加入了垃圾回收机制。 将各种语言的代码编译为字节码文件的编译器是前端编译器，执行引擎的JIT编译器是后端编译器。 字节码指令不等同于机器指令，将字节码指令翻译为机器指令的部分就是执行引擎。
+Java代码执行流程 一般都采用的是解释执行和即时编译并存的执行引擎。(即图中Java虚拟机最左端部分) JIT编译器将反复执行的热点代码编译为机器指令后还会将其缓存起来。
+由于跨平台的设计，Java的指令都是根据栈来实现的 指令集可以分为基于栈的指令集架构和基于寄存器的指令集架构。 零地址指令 没有操作的地址，只有操作数。 一地址指令 有一个地址，然后是操作数 二地址三地址以此类推
+栈：跨平台性，指令集小，指令数量多，执行性能比寄存器差
+JVM发展(各种虚拟机) Sun Classic VM (HotSpot里内置了)： 只提供解释器 Exact VM： 可以知道某个内存中的数据是什么类型，编译器(负责执行性能)解释器(负责响应时间)混合工作 HotSpot VM：独有方法区(JRockit，J9都没有) JRockit：专注于服务端应用，不包含解释器。世界上最快的JVM。MissionControl服务套件。 IBM的J9：三大商用JVM之一 Dalvik VM：应用于安卓，没有遵守Java虚拟机规范，基于寄存器架构。 Graal VM：跨语言全栈虚拟机。最有希望取代HotSpot VM。 类加载子系统</description></item><item><title>Udemy_linux</title><link>/techBlog/posts/udemy_linux/</link><pubDate>Sun, 07 Mar 2021 21:23:26 +0900</pubDate><guid>/techBlog/posts/udemy_linux/</guid><description>Day 1 查找Linux发行版的网站 DistroWatch.com
+Day 2 /etc 系统设置文件夹
+/var 主要是日志文件存储地
+/usr/local 非系统自带软件安装地（并非所有） /opt 可选，第三方软件安装地
+具体内容有可能是软件目录下有自己的目录结构，也有可能共享目录（说的是设置，日志等）：如在/etc下存储自己的设置，在/var下存储自己的日志 &amp;lt;- 不在自己的安装目录下
+例子1
+/etc/opt/myapp /opt/myapp/bin /opt/myapp/lib /var/opt/myapp 例子2
+/usr/local/bin/myapp /usr/local/lib/libmyapp.so /usr/local/etc/myapp.conf Tilde(波浪号，チルダ) ~jason = /home/jason ~gongzhihao = /home/gongzhihao ~root = /root ~ftp = /srv/ftp
+man 相关
+使用man查询用法说明后，回车下一行，空格下一页，g回到顶端，G到底部（shift+g），推出按q man -k 搜索内容 在man页面中进行搜索 环境变量</description></item><item><title>Ruby_on_rails_tips</title><link>/techBlog/posts/ruby_on_rails_tips/</link><pubDate>Sun, 07 Mar 2021 21:22:31 +0900</pubDate><guid>/techBlog/posts/ruby_on_rails_tips/</guid><description>在class中访问元素 使用attr_accessor :foo 定义的变量foo可以不需要self.直接访问。 如
+class Person attr_accessor :name def greeting name end end &amp;gt;&amp;gt; person = Person.new &amp;gt;&amp;gt; person.name = &amp;quot;maiomi&amp;quot; &amp;gt;&amp;gt; person.greeting =&amp;gt; &amp;quot;miaomi&amp;quot; 教程中解释上述现象的语句为： is created automatically by Active Record based on the name of the corresponding database column
+可以不带self.取得但是如果更新不带self.的话就会建立一个函数的本地变量，不会对类的属性产生影响。 如
+class Person attr_accessor :name def greeting(string) name = string end end &amp;gt;&amp;gt; person = Person.new &amp;gt;&amp;gt; person.greeting(&amp;quot;miaomi&amp;quot;) =&amp;gt; &amp;quot;miaomi&amp;quot; &amp;gt;&amp;gt; person.name =&amp;gt; nil 使用self.之后
+class Person attr_accessor :name def greeting(string) self.</description></item><item><title>Sprint_guide</title><link>/techBlog/posts/sprint_guide/</link><pubDate>Sun, 07 Mar 2021 21:03:15 +0900</pubDate><guid>/techBlog/posts/sprint_guide/</guid><description>学习spring的基本知识找不到好的课程所以跟着官方Guides学习
 1.建立一个resful服务
 为了学习基础知识，不使用Github上的工程文件，使用spring initializr来建立工程的框架 https://start.spring.io/
 指定各项参数：
