@@ -3,7 +3,7 @@ languageCode = "en-us"
 title = "Day Day Up"
 theme = "hello-friend-ng"
 
-logoHomeLink = "/techBlog"
+logoHomeLink = "/"
 
 [[menu.main]]
     identifier = "blog"
