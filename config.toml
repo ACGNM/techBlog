@@ -6,7 +6,7 @@ theme = "hello-friend-ng"
 [params.logo]
     logoText = "$cd /home/zgong"
 
-logoHomeLink = "/"
+logoHomeLink = "/techBlog"
 
 [[menu.main]]
     identifier = "blog"
