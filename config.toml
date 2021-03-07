@@ -1,4 +1,4 @@
-baseURL = "https://acgnm.github.io/techBlog/"
+baseURL = "https://acgnm.github.io/"
 languageCode = "en-us"
 title = "Day Day Up"
 theme = "hello-friend-ng"
