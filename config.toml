@@ -3,7 +3,9 @@ languageCode = "en-us"
 title = "Day Day Up"
 theme = "hello-friend-ng"
 
-logoText = "cd /home/zgong"
+[params.logo]
+    logoText = "$cd /home/zgong"
+
 logoHomeLink = "/"
 
 [[menu.main]]
