@@ -845,4 +845,27 @@ Create New Project -&amp;gt; Maven -&amp;gt; Groupd和ArtifactId与之前spring 
 </ul>
 </li>
 </ul>
+<h1 id="section5-container生命周期和持久数据volumes">Section5 Container生命周期和持久数据（Volumes）</h1>
+<h2 id="container-lifetime">Container Lifetime</h2>
+<ul>
+<li>container一般具有不变性和临时性</li>
+<li>&ldquo;immutable infrastructure&rdquo;: only re-deploy, never change
+<ul>
+<li>这是理想的状态，应用的二进制应该与数据分开</li>
+<li>当应用升级时只需要重新部署一个有着升过级的app的container并且会包含所有之前的专有数据（unique data）</li>
+<li>这种特性由Docker提供，保证这种&quot;separation concerns&quot;</li>
+</ul>
+</li>
+<li>在删除container之前，跨越关闭和重启的那些专有数据（在UFS层-union file system）可以称为&quot;persistent data&quot;
+<ul>
+<li>在container之前还没有这种概念。因为以前的服务器的数据默认就是持续存在的</li>
+<li>在container和auto scaling的世界就会出现如何维护这种unique data的问题</li>
+<li>为了解决这个问题, Docker中有两个解决方案，<code>Volumes</code>和<code>Bind Mounts</code></li>
+</ul>
+</li>
+<li><code>Volumes</code>: make special location outside of container UFS to store unique data</li>
+<li><code>Bind Mounts</code>: link container path to host path</li>
+<li>在上述两种情况下，在container看来都是达到了在访问本地路径一样的效果</li>
+</ul>
+<h2 id="data-volumes">Data Volumes</h2>
 ]]></content></item></channel></rss>
