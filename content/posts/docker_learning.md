@@ -138,3 +138,21 @@ dcoker自带一个DNS用来解析域名（容器名）从而访问到正确的�
 	- 可以继承来`FROM`里的所有stanza，所以不需要加入`CMD`等必要的stanza
 	- `WORKDIR`相当于执行了`cd`命令
 	- `docker conainer run`的`-rm`flag用来告诉docker，当container退出后clean up container和其file system
+
+# Section5 Container生命周期和持久数据（Volumes） 
+## Container Lifetime
+- container一般具有不变性和临时性
+- "immutable infrastructure": only re-deploy, never change
+	- 这是理想的状态，应用的二进制应该与数据分开
+	- 当应用升级时只需要重新部署一个有着升过级的app的container并且会包含所有之前的专有数据（unique data）
+	- 这种特性由Docker提供，保证这种"separation concerns"
+- 在删除container之前，跨越关闭和重启的那些专有数据（在UFS层-union file system）可以称为"persistent data"
+	- 在container之前还没有这种概念。因为以前的服务器的数据默认就是持续存在的
+	- 在container和auto scaling的世界就会出现如何维护这种unique data的问题
+	- 为了解决这个问题, Docker中有两个解决方案，`Volumes`和`Bind Mounts`
+- `Volumes`: make special location outside of container UFS to store unique data
+- `Bind Mounts`: link container path to host path
+- 在上述两种情况下，在container看来都是达到了在访问本地路径一样的效果
+
+## Data Volumes
+
