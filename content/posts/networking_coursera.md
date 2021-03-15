@@ -50,3 +50,37 @@ Data link layer 用来让数据跨越单个链接，Network layer 用来让数�
 ### Basic of Networking Devices
 
 #### Cables
+
+#### Hubs and Switches
+
+- Hub是物理层设备，交换机是数据链路层设备
+- Hub在接收到信号时会发送至连接到Hub的所有其他设备。而交换机则会根据以太网协议只发送给目标节点。所以当所有节点同时发送信息时，Hub的信号会互相干扰所以会有很长的等待时间，而交换机避免了这样的事。
+- The primary devices used to connect computers on a single network, usually referred to as a **LAN**, or **Local Area Network**.
+
+#### Routers
+- A router is a device that knows how to forward data between independent networks. (网络层设备)
+
+- **BGP (Border Gateway Protocol)**
+
+	- Routers share data with each other via a protocol known as BGP, that let's them learn about the most optimal paths to forward traffic.
+
+### The Physical Layer
+
+#### Modulation 
+A way of varing the voltage of this charge moving across the cable
+
+- Used in twisted pair (双绞线) known as **Line coding**
+- 利用双绞线可以实现全双工（full-duplex）和半双工（half-duplex）
+	- 全双工两边可以同时进行通信，半双工在一段时间内只有一方可以传递数据
+	- 一到两对双绞线给双向通讯中的某个单项通讯保证留有信道
+
+![cables](https://github.com/ACGNM/pics/raw/master/networking/cables.png)
+
+#### Network Port
+- 最常见的接口是RJ450接口（Register Jack 45）
+	- 左右两个LED。左边的闪说明两边都连接着启动中的设备。右边闪说明在进行数据传输。
+![RJ45](https://github.com/ACGNM/pics/raw/master/networking/RJ45.png)
+
+#### Patch Panel
+有许多端口，仅仅起集线作用，输出端一般连接到交换机。
+![Patch Panel](https://github.com/ACGNM/pics/raw/master/networking/Patch_panel.png)
