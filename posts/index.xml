@@ -43,6 +43,49 @@ Data link layer Responsible for defining a common way of interpreting(解释, �
 <p><img src="https://github.com/ACGNM/pics/raw/master/networking/layers.png" alt="layers"></p>
 <h3 id="basic-of-networking-devices">Basic of Networking Devices</h3>
 <h4 id="cables">Cables</h4>
+<h4 id="hubs-and-switches">Hubs and Switches</h4>
+<ul>
+<li>Hub是物理层设备，交换机是数据链路层设备</li>
+<li>Hub在接收到信号时会发送至连接到Hub的所有其他设备。而交换机则会根据以太网协议只发送给目标节点。所以当所有节点同时发送信息时，Hub的信号会互相干扰所以会有很长的等待时间，而交换机避免了这样的事。</li>
+<li>The primary devices used to connect computers on a single network, usually referred to as a <strong>LAN</strong>, or <strong>Local Area Network</strong>.</li>
+</ul>
+<h4 id="routers">Routers</h4>
+<ul>
+<li>
+<p>A router is a device that knows how to forward data between independent networks. (网络层设备)</p>
+</li>
+<li>
+<p><strong>BGP (Border Gateway Protocol)</strong></p>
+<ul>
+<li>Routers share data with each other via a protocol known as BGP, that let&rsquo;s them learn about the most optimal paths to forward traffic.</li>
+</ul>
+</li>
+</ul>
+<h3 id="the-physical-layer">The Physical Layer</h3>
+<h4 id="modulation">Modulation</h4>
+<p>A way of varing the voltage of this charge moving across the cable</p>
+<ul>
+<li>Used in twisted pair (双绞线) known as <strong>Line coding</strong></li>
+<li>利用双绞线可以实现全双工（full-duplex）和半双工（half-duplex）
+<ul>
+<li>全双工两边可以同时进行通信，半双工在一段时间内只有一方可以传递数据</li>
+<li>一到两对双绞线给双向通讯中的某个单项通讯保证留有信道</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/ACGNM/pics/raw/master/networking/cables.png" alt="cables"></p>
+<h4 id="network-port">Network Port</h4>
+<ul>
+<li>最常见的接口是RJ450接口（Register Jack 45）
+<ul>
+<li>左右两个LED。左边的闪说明两边都连接着启动中的设备。右边闪说明在进行数据传输。
+<img src="https://github.com/ACGNM/pics/raw/master/networking/RJ45.png" alt="RJ45"></li>
+</ul>
+</li>
+</ul>
+<h4 id="patch-panel">Patch Panel</h4>
+<p>有许多端口，仅仅起集线作用，输出端一般连接到交换机。
+<img src="https://github.com/ACGNM/pics/raw/master/networking/Patch_panel.png" alt="Patch Panel"></p>
 ]]></content></item><item><title>Jvm_learning</title><link>/techBlog/posts/jvm_learning/</link><pubDate>Sun, 07 Mar 2021 21:24:28 +0900</pubDate><guid>/techBlog/posts/jvm_learning/</guid><description>JVM与JAVA体系结构 主要研究官方提供的HotSpot虚拟机 不管什么语言，只要提供编译器编译出遵循JVM规范的字节码文件，就可以在Java虚拟机运行。 在Java虚拟机中执行的指令成为Java字节码指令 虚拟机分为系统虚拟机和软件虚拟机 系统虚拟机模拟硬件环境，软件虚拟机运行在操作系统之上，不与硬件进行直接交互。
 JVM的位置 java代码(.java文件)编译成字节码文件(.class文件)给JVM执行 JVM整体结构 执行引擎用来解释运行。其中只用解释器的话对于反复被执行的热点代码的优化不够，所以引入JIT编译器(Just-In-Time Compiler)来提前将字节码文件编译成二进制机器命令。同时加入了垃圾回收机制。 将各种语言的代码编译为字节码文件的编译器是前端编译器，执行引擎的JIT编译器是后端编译器。 字节码指令不等同于机器指令，将字节码指令翻译为机器指令的部分就是执行引擎。
 Java代码执行流程 一般都采用的是解释执行和即时编译并存的执行引擎。(即图中Java虚拟机最左端部分) JIT编译器将反复执行的热点代码编译为机器指令后还会将其缓存起来。
