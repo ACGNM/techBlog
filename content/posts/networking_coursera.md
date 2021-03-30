@@ -84,3 +84,25 @@ A way of varing the voltage of this charge moving across the cable
 #### Patch Panel
 有许多端口，仅仅起集线作用，输出端一般连接到交换机。
 ![Patch Panel](https://github.com/ACGNM/pics/raw/master/networking/Patch_panel.png)
+
+### The Data Link Layer
+
+一开始以太网一次只能由一台节点的发送信息。因为所每次发送信息都会发送到网络中除发送方之外的的所有节点。则如果两台电脑同时发送信息则会造成碰撞。
+
+- Ethernet as protocol solved this problem by using a technique known as **carrier sense multiple access with collision detection**.
+-  **CSMA/CD**  used to determine when the commucations channels are clear, and when a device is free to transmit data.
+-  所以在collision domain中任意在网络中的节点都会接受到所有网络其他节点发送的信息
+
+####  **所以需要一种方式#来识别传输朝向哪个节点**
+
+这就是**Media Acess Control Address (MAC地址)**
+
+- A golablly unique identifier attached to an individual network interface
+- 48-bit number normally represented by six groupings of two hexadecimal numbers **由48位的六组两位十六进制数表示**
+- **Octet: any number that can be represented by 8 bits**
+- Two hexadecimal digits can represent the same numbers that 8 bits can **两位的十六进制数可以表示8位所代表的数字 (FF=2^8-1)**
+
+MAC address的形式
+- 前三个octet是Organization Unique Identifier(OUI)
+- 后三位Vendor Assigned
+- 相当于分成两个24位的部分
