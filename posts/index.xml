@@ -1,4 +1,37 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 14 Mar 2021 23:21:58 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Networking_coursera</title><link>/techBlog/posts/networking_coursera/</link><pubDate>Sun, 14 Mar 2021 23:21:58 +0900</pubDate><guid>/techBlog/posts/networking_coursera/</guid><description>The Bits and Bytes of Computer Networking First Week protocol a define set of standards that computers must follwo in order to communicate properly.
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Mar 2021 01:07:15 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>React</title><link>/techBlog/posts/react/</link><pubDate>Sun, 21 Mar 2021 01:07:15 +0900</pubDate><guid>/techBlog/posts/react/</guid><description>React terms JSX: Javascript Syntax Extention (allow us to write dynamic html) Virtual DOM (Document Object Model) ternary operator 三元运算符 Component 两种形式：函数形式和类形式 使用props在组件之间传递值（类似于JS中的函数参数） State determines how a component reders and behaves 相当于属性，在组件中存储数据 &amp;ldquo;app&amp;rdquo; state and &amp;ldquo;global&amp;rdquo; state refers to state that is avalable to the entire UI 如果最后出现一大堆全局state, 可以使用context api或者使用第三方的state管理器redux React Hooks 是一系列函数让函数形式的组件可以像类组件一样使用state和其lifecycle create react app Tips react-dom: responsilble for rendering react application out to the domcument object model to the browser react-javascript: comes with development server and build tools index.</description><content type="html"><![CDATA[<h1 id="react">React</h1>
+<h2 id="terms">terms</h2>
+<ul>
+<li>JSX: Javascript Syntax Extention (allow us to write dynamic html)</li>
+<li>Virtual DOM (Document Object Model)</li>
+<li>ternary operator 三元运算符</li>
+</ul>
+<h2 id="component">Component</h2>
+<ul>
+<li>两种形式：函数形式和类形式</li>
+<li>使用props在组件之间传递值（类似于JS中的函数参数）</li>
+</ul>
+<h2 id="state">State</h2>
+<ul>
+<li>determines how a component reders and behaves</li>
+<li>相当于属性，在组件中存储数据</li>
+<li>&ldquo;app&rdquo; state and &ldquo;global&rdquo; state refers to state that is avalable to the entire UI</li>
+<li>如果最后出现一大堆全局state, 可以使用context api或者使用第三方的state管理器<code>redux</code></li>
+</ul>
+<h2 id="react-hooks">React Hooks</h2>
+<ul>
+<li>是一系列函数让函数形式的组件可以像类组件一样使用state和其lifecycle</li>
+</ul>
+<h2 id="create-react-app">create react app</h2>
+<h3 id="tips">Tips</h3>
+<ul>
+<li><code>react-dom</code>: responsilble for rendering react application out to the domcument object model to the browser</li>
+<li><code>react-javascript</code>: comes with development server and build tools</li>
+<li><code>index.js</code>: entry point of react</li>
+<li>组件函数的返回值必须是一个有父母元素的JSX。如果不想让返回的要素再包裹一层div（作为empty fragment返回），则使用<code>&lt;&gt;...&lt;/&gt;</code>包裹即可</li>
+<li>在嵌入的JSX代码中设置style需要用双花括号 <code>return &lt;div style={{ color: 'red' }}&gt;...&lt;/div&gt;</code></li>
+<li>使用js的map函数生成的list的每个要素都要有一个唯一的key。不然控制台会报警</li>
+</ul>
+]]></content></item><item><title>Networking_coursera</title><link>/techBlog/posts/networking_coursera/</link><pubDate>Sun, 14 Mar 2021 23:21:58 +0900</pubDate><guid>/techBlog/posts/networking_coursera/</guid><description>The Bits and Bytes of Computer Networking First Week protocol a define set of standards that computers must follwo in order to communicate properly.
 TCP/IP Five Layer Network Model Overview Physical layer Represents the physical devices that interconnect computers
 Data link layer Responsible for defining a common way of interpreting(解释, 翻译) these signals so network devices can communicate
 在数据连接层有许多协议，最常见的是以太网（Ethernet） the Ethernet standards also define a protocol responsible for getting data to nodes on the same network or link.</description><content type="html"><![CDATA[<h1 id="the-bits-and-bytes-of-computer-networking">The Bits and Bytes of Computer Networking</h1>
@@ -86,6 +119,27 @@ Data link layer Responsible for defining a common way of interpreting(解释, �
 <h4 id="patch-panel">Patch Panel</h4>
 <p>有许多端口，仅仅起集线作用，输出端一般连接到交换机。
 <img src="https://github.com/ACGNM/pics/raw/master/networking/Patch_panel.png" alt="Patch Panel"></p>
+<h3 id="the-data-link-layer">The Data Link Layer</h3>
+<p>一开始以太网一次只能由一台节点的发送信息。因为所每次发送信息都会发送到网络中除发送方之外的的所有节点。则如果两台电脑同时发送信息则会造成碰撞。</p>
+<ul>
+<li>Ethernet as protocol solved this problem by using a technique known as <strong>carrier sense multiple access with collision detection</strong>.</li>
+<li><strong>CSMA/CD</strong>  used to determine when the commucations channels are clear, and when a device is free to transmit data.</li>
+<li>所以在collision domain中任意在网络中的节点都会接受到所有网络其他节点发送的信息</li>
+</ul>
+<h4 id="所以需要一种方式来识别传输朝向哪个节点"><strong>所以需要一种方式#来识别传输朝向哪个节点</strong></h4>
+<p>这就是<strong>Media Acess Control Address (MAC地址)</strong></p>
+<ul>
+<li>A golablly unique identifier attached to an individual network interface</li>
+<li>48-bit number normally represented by six groupings of two hexadecimal numbers <strong>由48位的六组两位十六进制数表示</strong></li>
+<li><strong>Octet: any number that can be represented by 8 bits</strong></li>
+<li>Two hexadecimal digits can represent the same numbers that 8 bits can <strong>两位的十六进制数可以表示8位所代表的数字 (FF=2^8-1)</strong></li>
+</ul>
+<p>MAC address的形式</p>
+<ul>
+<li>前三个octet是Organization Unique Identifier(OUI)</li>
+<li>后三位Vendor Assigned</li>
+<li>相当于分成两个24位的部分</li>
+</ul>
 ]]></content></item><item><title>Jvm_learning</title><link>/techBlog/posts/jvm_learning/</link><pubDate>Sun, 07 Mar 2021 21:24:28 +0900</pubDate><guid>/techBlog/posts/jvm_learning/</guid><description>JVM与JAVA体系结构 主要研究官方提供的HotSpot虚拟机 不管什么语言，只要提供编译器编译出遵循JVM规范的字节码文件，就可以在Java虚拟机运行。 在Java虚拟机中执行的指令成为Java字节码指令 虚拟机分为系统虚拟机和软件虚拟机 系统虚拟机模拟硬件环境，软件虚拟机运行在操作系统之上，不与硬件进行直接交互。
 JVM的位置 java代码(.java文件)编译成字节码文件(.class文件)给JVM执行 JVM整体结构 执行引擎用来解释运行。其中只用解释器的话对于反复被执行的热点代码的优化不够，所以引入JIT编译器(Just-In-Time Compiler)来提前将字节码文件编译成二进制机器命令。同时加入了垃圾回收机制。 将各种语言的代码编译为字节码文件的编译器是前端编译器，执行引擎的JIT编译器是后端编译器。 字节码指令不等同于机器指令，将字节码指令翻译为机器指令的部分就是执行引擎。
 Java代码执行流程 一般都采用的是解释执行和即时编译并存的执行引擎。(即图中Java虚拟机最左端部分) JIT编译器将反复执行的热点代码编译为机器指令后还会将其缓存起来。
