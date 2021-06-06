@@ -106,3 +106,5 @@ MAC address的形式
 - 前三个octet是Organization Unique Identifier(OUI)
 - 后三位Vendor Assigned
 - 相当于分成两个24位的部分
+
+

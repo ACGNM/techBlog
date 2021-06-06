@@ -38,3 +38,4 @@ tags:
 - 组件函数的返回值必须是一个有父母元素的JSX。如果不想让返回的要素再包裹一层div（作为empty fragment返回），则使用`<>...</>`包裹即可
 - 在嵌入的JSX代码中设置style需要用双花括号 `return <div style={{ color: 'red' }}>...</div>`
 - 使用js的map函数生成的list的每个要素都要有一个唯一的key。不然控制台会报警
+- 需要使用icon的话可以安装`react-icon`: `npm -i react-icon`

@@ -63,7 +63,7 @@ tags:
 	- 和一个由mongo, nodejs组成的`my_api`网络
 	- 但是不进行设置的话不同网络之间没法互通
 ### 定制化
-- "Batteris included, But Removable" 
+- "Batter is included, But Removable" 
 	- 大部分情景使用默认设置即可但是可以随意定制
 - 可以将容器连接至多个或0个虚拟网络
 - 可使用`--net=host`来跳过虚拟网络直接使用主机IP
@@ -155,4 +155,29 @@ dcoker自带一个DNS用来解析域名（容器名）从而访问到正确的�
 - 在上述两种情况下，在container看来都是达到了在访问本地路径一样的效果
 
 ## Data Volumes
+- 在Dockerfile中使用`VOLUME`命令来指定一个地址来创建新的volumes
+- 当volumes创建之后不会因为container的删除而自己消失，需要手动删除
+	- 使用`docker volume prune`来清理不用的volumes
+	- 说明volume比container本身要重要
+- 将mysql的image作为例子
+	- `docker image inspect mysql`
+	- mysql的启动可以指定环境变量从而使用无密码的启动：`docker container run -d --name mysql -e MY_SQL_ALLOW_EMPTY_PASSWORD=True mysql`
+	- 运行后再inspect可以在`Mounts`的部分看到volume的路径和在host上的路径
+	- `docker volume ls`列出所有volume，但是只能看到唯一的ID。看其中内容用`docker volume inspect <VOLUME NAME>`
+	- 在linux下可以直接进入source所指定的路径，但是mac和windows因为使用了linux虚拟机所以volume的路径是隐藏起来的无法直接进入
+- 但是仅凭借VOLUME NAME很难知道volume是与哪个container关联的。因为即使删除了container，volume也依然存在。
+	- 在run命令中使用named Volumed可以解决：加入`-v mysql-db:/var/lib/mysql`
+	- 此时inspect volume的话就会出现name属性
+	- 如果想在新的container中使用之前的name volume（比如对contrainer的应用进行升级时），同样加入`-v mysql-db:/var/lib/mysql`命令即可使用同一volume来启动container。
+- `docker volume create`什么时候使用
+	- 在执行run之前，用来使用自定义的硬盘驱动和标签
 
+## Persistent Data: Bind Mounting
+- 将本地文件或目录映射为container的文件或者目录
+- 相当于两个地址指向同一个文件
+- host对文件的修改优先级更高。删除container不会删除host上的文件。
+- 不能在Dockerfile中定义，只能在运行时（`docker run`）指定
+- 用法是在-v 后指定具体的host文件的路径：`... run -v /host/file/path:/path/of/container`。bind mount是以`/`开头的所以docker可以将其与name volume区分开
+- 例子用了nginx。将本地的index.html文件用`-v $(pwd):/path/to/nginx/html/dir`映射到container。这时从host修改index.html会让nginx的主页显示不同的内容。
+
+# Section6 Docker compose: The Multi-container Tool
