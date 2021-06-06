@@ -1,4 +1,9 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 21 Mar 2021 01:07:15 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>React</title><link>/techBlog/posts/react/</link><pubDate>Sun, 21 Mar 2021 01:07:15 +0900</pubDate><guid>/techBlog/posts/react/</guid><description>React terms JSX: Javascript Syntax Extention (allow us to write dynamic html) Virtual DOM (Document Object Model) ternary operator 三元运算符 Component 两种形式：函数形式和类形式 使用props在组件之间传递值（类似于JS中的函数参数） State determines how a component reders and behaves 相当于属性，在组件中存储数据 &amp;ldquo;app&amp;rdquo; state and &amp;ldquo;global&amp;rdquo; state refers to state that is avalable to the entire UI 如果最后出现一大堆全局state, 可以使用context api或者使用第三方的state管理器redux React Hooks 是一系列函数让函数形式的组件可以像类组件一样使用state和其lifecycle create react app Tips react-dom: responsilble for rendering react application out to the domcument object model to the browser react-javascript: comes with development server and build tools index.</description><content type="html"><![CDATA[<h1 id="react">React</h1>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Day Day Up</title><link>/techBlog/posts/</link><description>Recent content in Posts on Day Day Up</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 26 Apr 2021 00:20:11 +0900</lastBuildDate><atom:link href="/techBlog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>JAVA Interview</title><link>/techBlog/posts/java_interview/</link><pubDate>Mon, 26 Apr 2021 00:20:11 +0900</pubDate><guid>/techBlog/posts/java_interview/</guid><description>基础语法 基本数据结构 char 类型的值是Unicode, 默认值是'\u0000'。\u之后是两个十六进制数字。参考链接</description><content type="html"><![CDATA[<h1 id="基础语法">基础语法</h1>
+<h2 id="基本数据结构">基本数据结构</h2>
+<ul>
+<li>char 类型的值是Unicode, 默认值是<code>'\u0000'</code>。<code>\u</code>之后是两个十六进制数字。<a href="https://unicode-table.com/en/">参考链接</a></li>
+</ul>
+]]></content></item><item><title>Effective Java</title><link>/techBlog/posts/effective_java/</link><pubDate>Fri, 09 Apr 2021 02:54:53 +0900</pubDate><guid>/techBlog/posts/effective_java/</guid><description/><content type="html"></content></item><item><title>React</title><link>/techBlog/posts/react/</link><pubDate>Sun, 21 Mar 2021 01:07:15 +0900</pubDate><guid>/techBlog/posts/react/</guid><description>React terms JSX: Javascript Syntax Extention (allow us to write dynamic html) Virtual DOM (Document Object Model) ternary operator 三元运算符 Component 两种形式：函数形式和类形式 使用props在组件之间传递值（类似于JS中的函数参数） State determines how a component reders and behaves 相当于属性，在组件中存储数据 &amp;ldquo;app&amp;rdquo; state and &amp;ldquo;global&amp;rdquo; state refers to state that is avalable to the entire UI 如果最后出现一大堆全局state, 可以使用context api或者使用第三方的state管理器redux React Hooks 是一系列函数让函数形式的组件可以像类组件一样使用state和其lifecycle create react app Tips react-dom: responsilble for rendering react application out to the domcument object model to the browser react-javascript: comes with development server and build tools index.</description><content type="html"><![CDATA[<h1 id="react">React</h1>
 <h2 id="terms">terms</h2>
 <ul>
 <li>JSX: Javascript Syntax Extention (allow us to write dynamic html)</li>
@@ -30,6 +35,7 @@
 <li>组件函数的返回值必须是一个有父母元素的JSX。如果不想让返回的要素再包裹一层div（作为empty fragment返回），则使用<code>&lt;&gt;...&lt;/&gt;</code>包裹即可</li>
 <li>在嵌入的JSX代码中设置style需要用双花括号 <code>return &lt;div style={{ color: 'red' }}&gt;...&lt;/div&gt;</code></li>
 <li>使用js的map函数生成的list的每个要素都要有一个唯一的key。不然控制台会报警</li>
+<li>需要使用icon的话可以安装<code>react-icon</code>: <code>npm -i react-icon</code></li>
 </ul>
 ]]></content></item><item><title>Networking_coursera</title><link>/techBlog/posts/networking_coursera/</link><pubDate>Sun, 14 Mar 2021 23:21:58 +0900</pubDate><guid>/techBlog/posts/networking_coursera/</guid><description>The Bits and Bytes of Computer Networking First Week protocol a define set of standards that computers must follwo in order to communicate properly.
 TCP/IP Five Layer Network Model Overview Physical layer Represents the physical devices that interconnect computers
@@ -868,7 +874,7 @@ Create New Project -&amp;gt; Maven -&amp;gt; Groupd和ArtifactId与之前spring 
 </ul>
 <h3 id="定制化">定制化</h3>
 <ul>
-<li>&ldquo;Batteris included, But Removable&rdquo;
+<li>&ldquo;Batter is included, But Removable&rdquo;
 <ul>
 <li>大部分情景使用默认设置即可但是可以随意定制</li>
 </ul>
@@ -1010,4 +1016,44 @@ Create New Project -&amp;gt; Maven -&amp;gt; Groupd和ArtifactId与之前spring 
 <li>在上述两种情况下，在container看来都是达到了在访问本地路径一样的效果</li>
 </ul>
 <h2 id="data-volumes">Data Volumes</h2>
+<ul>
+<li>在Dockerfile中使用<code>VOLUME</code>命令来指定一个地址来创建新的volumes</li>
+<li>当volumes创建之后不会因为container的删除而自己消失，需要手动删除
+<ul>
+<li>使用<code>docker volume prune</code>来清理不用的volumes</li>
+<li>说明volume比container本身要重要</li>
+</ul>
+</li>
+<li>将mysql的image作为例子
+<ul>
+<li><code>docker image inspect mysql</code></li>
+<li>mysql的启动可以指定环境变量从而使用无密码的启动：<code>docker container run -d --name mysql -e MY_SQL_ALLOW_EMPTY_PASSWORD=True mysql</code></li>
+<li>运行后再inspect可以在<code>Mounts</code>的部分看到volume的路径和在host上的路径</li>
+<li><code>docker volume ls</code>列出所有volume，但是只能看到唯一的ID。看其中内容用<code>docker volume inspect &lt;VOLUME NAME&gt;</code></li>
+<li>在linux下可以直接进入source所指定的路径，但是mac和windows因为使用了linux虚拟机所以volume的路径是隐藏起来的无法直接进入</li>
+</ul>
+</li>
+<li>但是仅凭借VOLUME NAME很难知道volume是与哪个container关联的。因为即使删除了container，volume也依然存在。
+<ul>
+<li>在run命令中使用named Volumed可以解决：加入<code>-v mysql-db:/var/lib/mysql</code></li>
+<li>此时inspect volume的话就会出现name属性</li>
+<li>如果想在新的container中使用之前的name volume（比如对contrainer的应用进行升级时），同样加入<code>-v mysql-db:/var/lib/mysql</code>命令即可使用同一volume来启动container。</li>
+</ul>
+</li>
+<li><code>docker volume create</code>什么时候使用
+<ul>
+<li>在执行run之前，用来使用自定义的硬盘驱动和标签</li>
+</ul>
+</li>
+</ul>
+<h2 id="persistent-data-bind-mounting">Persistent Data: Bind Mounting</h2>
+<ul>
+<li>将本地文件或目录映射为container的文件或者目录</li>
+<li>相当于两个地址指向同一个文件</li>
+<li>host对文件的修改优先级更高。删除container不会删除host上的文件。</li>
+<li>不能在Dockerfile中定义，只能在运行时（<code>docker run</code>）指定</li>
+<li>用法是在-v 后指定具体的host文件的路径：<code>... run -v /host/file/path:/path/of/container</code>。bind mount是以<code>/</code>开头的所以docker可以将其与name volume区分开</li>
+<li>例子用了nginx。将本地的index.html文件用<code>-v $(pwd):/path/to/nginx/html/dir</code>映射到container。这时从host修改index.html会让nginx的主页显示不同的内容。</li>
+</ul>
+<h1 id="section6-docker-compose-the-multi-container-tool">Section6 Docker compose: The Multi-container Tool</h1>
 ]]></content></item></channel></rss>
